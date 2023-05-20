@@ -1,0 +1,33 @@
+body {
+  overflow-x: hidden;
+  background: var(--color-background-darker) repeating-linear-gradient(
+          8deg,
+          var(--color-background-dark),
+          var(--color-background-dark) 500px,
+          var(--color-background-darker) 500px,
+          var(--color-background-darker) 1000px
+  );
+}
+
+:root {
+  /*BACKGROUNDS*/
+  --color-background-lighter: #505050;
+  --color-background-light: #303030;
+  --color-background-dark: #242424;
+  --color-background-darker: #1f1f1f;
+  --color-background-blue-grey: #343A40;
+  /*PRIMARY*/
+  --color-primary-light: #fcdea4;
+  --color-primary: #f4ba7d;
+  --color-primary-dark: #de925e;
+  /*SECONDARY*/
+  --color-secondary-lighter: #47CAE8;
+  --color-secondary-light: #45b1cf;
+  --color-secondary: #3489a8;
+  --color-secondary-dark: #276781;
+  /*HIGHLIGHT*/
+  --color-highlight-light: #f0f0f0;
+  --color-highlight-dark: #cccccc;
+  /*OTHER*/
+  --color-navigation: #343a40;
+}

@@ -1,0 +1,179 @@
+.itemCard{
+    margin: 30px auto;
+    border-radius: 0.5em;
+    background-color: var(--color-background-light);
+    font-size: 1rem;
+    border: 1px solid var(--color-highlight-dark);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    max-height: calc(100% - 60px);
+    max-width: 500px;
+}
+
+.small{
+    margin: 15px;
+    font-size: 0.65rem;
+    max-width: 250px;
+    max-height: calc(100% - 30px);
+}
+
+.small .itemFlavor{
+    margin-bottom: 0.5em;
+}
+
+.small .itemBody ul{
+    margin-bottom: 0.5em;
+}
+
+.small .itemBody ul{
+    padding-left: 20px;
+}
+
+.itemCard h1 {
+    font-size: 2em;
+    padding: 0.3em;
+    text-align: center;
+    margin: 0;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-highlight-dark);
+}
+
+.title{
+    font-size: 2em;
+    padding: 0.3em;
+    text-align: center;
+    margin: 0;
+    color: var(--color-primary)!important;
+    border: none!important;
+    border-radius: 0!important;
+    border-bottom: 1px solid var(--color-highlight-dark)!important;
+}
+
+.itemBody{
+    margin: 1em;
+    padding-right: 0.5em;
+    overflow-y: auto;
+    max-height: 1fr;
+}
+
+
+.itemFlavor{
+    font-style: italic;
+    color: var(--color-highlight-dark);
+}
+
+.statContainer{
+    margin: 0;
+    padding: 0 1em;
+    border-bottom: 1px solid var(--color-highlight-dark);
+    color: var(--color-highlight-dark);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+
+.statText{
+    margin: 0;
+}
+
+.statPrice{
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
+
+.statPrice p{
+    margin: 0;
+}
+
+.statPrice img{
+    height: 1em;
+    margin: 0.25em;
+}
+
+
+.imageContainer{
+    text-align: center;
+    border-bottom: 1px solid var(--color-highlight-dark);
+}
+.imageContainer *{
+    height: 300px;
+    margin: 20px;
+    background-color: var(--color-background-light);
+}
+
+.imageSmall *{
+    height: 135px;
+    margin: 5px;
+    background-color: var(--color-background-light);
+}
+
+/* Glow for rarity 1 (no glow) */
+.itemCard.rarity1 {
+    /* No special style for rarity 1 items */
+}
+
+/* Glow for rarity 2 (purple/blue) */
+.itemCard.rarity2 {
+    box-shadow: 0 0 20px 5px rgba(69, 177, 207, 0.5);
+}
+
+/* Glow for rarity 3 (orange) */
+.itemCard.rarity3 {
+    box-shadow: 0 0 40px 10px rgba(255, 165, 0, 0.4);
+}
+
+
+@media only screen and (max-width: 800px), screen and (max-height: 800px) {
+    .itemCard{
+        font-size: 0.85rem;
+        max-width: 400px;
+    }
+
+    .itemCard h1{
+        font-size: 1.85em;
+    }
+
+    .itemBody{
+        margin: 1em;
+        overflow-y: auto;
+    }
+
+    .itemBody ul{
+        padding-left: 20px;
+    }
+
+    .imageContainer *{
+        height: 200px;
+        margin: 10px;
+    }
+
+    .imageSmall *{
+        height: 150px;
+        margin: 5px;
+    }
+    /*.small{*/
+    /*    max-width: 275px;*/
+    /*    font-size: 0.5rem;*/
+    /*}*/
+    .small{
+        margin: 15px;
+        font-size: 0.75rem;
+        max-width: 250px;
+        max-height: calc(100% - 30px);
+    }
+}
+
+/*In case the screen is really short*/
+@media only screen and (max-height: 550px) {
+    /*.itemCard{*/
+    /*    grid-template-rows: auto 20% 1fr;*/
+    /*}*/
+
+    /*.imageContainer img{*/
+    /*    height: 100px;*/
+    /*}*/
+}
