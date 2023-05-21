@@ -69,7 +69,7 @@ export const ITEM_BASE_TYPES = [
     types: [
       {
         name: "Leather Boots",
-        cost: 1,
+        cost: 25,
         stats: null,
       },
       {

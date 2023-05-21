@@ -1781,10 +1781,310 @@ export const ITEM_FLAVOR = [
     model: "ItemSlot",
     typeId: "body",
   },
+  {
+    text: "The cold steel helm feels reassuring, its interior lined with soft leather for comfort.",
+    model: "ItemSlot",
+    typeId: "helmet",
+  },
+  {
+    text: "Inscribed with strange runes, this plate helmet emanates an otherworldly aura.",
+    model: "ItemBase",
+    typeId: "Plate Helmet",
+  },
+  {
+    text: "Lightweight and unrestrictive, the leather armor molds to your body.",
+    model: "ItemSlot",
+    typeId: "body",
+  },
+  {
+    text: "Crafted with intricate detail, the mail armor is a testament to the skills of the blacksmith.",
+    model: "ItemBase",
+    typeId: "Mail Armour",
+  },
+  {
+    text: "The gloves are made of supple leather, offering both protection and dexterity.",
+    model: "ItemSlot",
+    typeId: "gloves",
+  },
+  {
+    text: "Laced with golden threads, these silk gloves are both luxurious and charming.",
+    model: "ItemBase",
+    typeId: "Silk Gloves",
+  },
+  {
+    text: "The boots are sturdy, constructed to withstand any terrain.",
+    model: "ItemSlot",
+    typeId: "boots",
+  },
+  {
+    text: "Cobbled from fine leather, the boots are as stylish as they are practical.",
+    model: "ItemBase",
+    typeId: "Leather Boots",
+  },
+  {
+    text: "The weapon is well-balanced, fitting comfortably in your grip.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "The greatsword is as intimidating as it is deadly, etched with tales of valor and conquest.",
+    model: "ItemBase",
+    typeId: "Greatsword",
+  },
+  {
+    text: "The jewelry shimmers softly, capturing the ambient light.",
+    model: "ItemSlot",
+    typeId: "jewelry",
+  },
+  {
+    text: "The ring is forged from pure silver, etched with delicate scrollwork around the band.",
+    model: "ItemBase",
+    typeId: "Ring",
+  },
+  {
+    text: "Practical and versatile, these items are more than they seem.",
+    model: "ItemSlot",
+    typeId: "misc",
+  },
+  {
+    text: "The flask is crafted from sturdy glass, its cork secured by a wax seal.",
+    model: "ItemBase",
+    typeId: "Flask",
+  },
+  {
+    text: "Beneath the rough exterior, an inner strength resides...",
+    model: "ItemSlot",
+    typeId: "body",
+  },
+  {
+    text: "The amulet feels oddly warm, and pulses gently with an unseen energy.",
+    model: "ItemBase",
+    typeId: "Amulet",
+  },
+  {
+    text: "A melody seems to hum softly from the weapon, a rhythm of battle long past...",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "Made from dense wood and reinforced with iron, the club is a formidable tool in the right hands.",
+    model: "ItemBase",
+    typeId: "Club",
+  },
+  {
+    text: "The soft glow of the helmet seems to bolster your courage...",
+    model: "ItemSlot",
+    typeId: "helmet",
+  },
+  {
+    text: "Silk Robes, shimmering with ethereal colors under the light.",
+    model: "ItemBase",
+    typeId: "Silk Robes",
+  },
+  {
+    text: "Despite their worn appearance, these leather boots seem capable of taking you anywhere.",
+    model: "ItemSlot",
+    typeId: "boots",
+  },
+  {
+    text: "This greatclub is not just a weapon; it’s a statement...",
+    model: "ItemBase",
+    typeId: "Greatclub",
+  },
+  {
+    text: "Subtle, yet powerful, the amulet beckons to the unseen...",
+    model: "ItemSlot",
+    typeId: "jewelry",
+  },
+  {
+    text: "Gleaming under the sun, the warhammer is as sturdy as it looks.",
+    model: "ItemBase",
+    typeId: "Warhammer",
+  },
+  {
+    text: "In battle, every ring may be a circle of protection...",
+    model: "ItemSlot",
+    typeId: "Ring",
+  },
+  {
+    text: "The helmet, heavier than it seems, engulfs you in reassuring solitude. Its inner layer of cushioning softens the weight, adding comfort to security.",
+    model: "ItemSlot",
+    typeId: "helmet",
+  },
+  {
+    text: "Imposing and magnificent, the Plate Helmet is covered in enigmatic symbols. A faint aura of power surrounds it, like an echo of battles fought and won.",
+    model: "ItemBase",
+    typeId: "Plate Helmet",
+  },
+  {
+    text: "Like a second skin, the leather armor fits perfectly, following every curve of your body. Its reassuring solidity without constriction enables swift and deadly movements.",
+    model: "ItemSlot",
+    typeId: "body",
+  },
+  {
+    text: "The Mail Armor is an exquisite testament to the blacksmith's prowess. Each link is meticulously crafted and intertwined, creating a flexible and reliable shield against harm.",
+    model: "ItemBase",
+    typeId: "Mail Armour",
+  },
+  {
+    text: "Crafted with the agility of the archer in mind, these gloves ensure a firm grip on your weapon. The supple leather enhances your dexterity, allowing precision with each shot.",
+    model: "ItemSlot",
+    typeId: "gloves",
+  },
+  {
+    text: "Woven with strands of gold, these silk gloves display elegance and charm. Their allure is not just in their appearance, but also in the subtle magic they hold within.",
+    model: "ItemBase",
+    typeId: "Silk Gloves",
+  },
+  {
+    text: "As solid as the earth, these boots are made to endure. They fit firmly around your feet, ready to carry you across fields, through forests, or into the heart of battle.",
+    model: "ItemSlot",
+    typeId: "boots",
+  },
+  {
+    text: "This pair of Leather Boots combine functionality and fashion. The supple leather is neatly stitched, forming a sturdy yet comfortable footwear fit for any adventure.",
+    model: "ItemBase",
+    typeId: "Leather Boots",
+  },
+  {
+    text: "Your hand wraps comfortably around the hilt of the weapon. Its balance is perfect, attuned to your movements, promising swift victory to its master.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "The Greatsword, engraved with stories of heroic deeds and epic battles, is a sight to behold. The blade gleams dangerously, a silent testament to the strength of its wielder.",
+    model: "ItemBase",
+    typeId: "Greatsword",
+  },
+  {
+    text: "The jewelry catches the eye with its soft shimmer. Whether nestled in velvet or adorning a noble, the piece is a radiant beacon of wealth and status.",
+    model: "ItemSlot",
+    typeId: "jewelry",
+  },
+  {
+    text: "Carved from lustrous gold, this ring is adorned with intricate engravings. The band feels cool against your skin, promising power to those who respect its value.",
+    model: "ItemBase",
+    typeId: "Ring",
+  },
+  {
+    text: "Beyond their mundane exterior, these objects hold extraordinary potential. Each item holds its own secret, waiting to be unlocked by the right person.",
+    model: "ItemSlot",
+    typeId: "misc",
+  },
+  {
+    text: "This Flask, forged from sturdy glass, is sealed with a wax emblem. The liquid within gleams enticingly, holding the promise of unknown effects.",
+    model: "ItemBase",
+    typeId: "Flask",
+  },
+  {
+    text: "A Cloak of Shadow swirls around you, blending you into the night. Its secret lies not just in its material, but in the magic that imbues every thread.",
+    model: "ItemSlot",
+    typeId: "body",
+  },
+  {
+    text: "The Quarterstaff is simple and unadorned, a reminder of the virtue in humility. Its true power lies not in appearance, but in the skill and grace of its user.",
+    model: "ItemBase",
+    typeId: "Quarterstaff",
+  },
+  {
+    text: "This Longsword's blade shines like a beacon in the dark. Its edge, though sharp enough to cut through the air, whispers a song of power that only its true master can hear.",
+    model: "ItemBase",
+    typeId: "Longsword",
+  },
+  {
+    text: "The Plate Boots, heavy and imposing, are engraved with symbols of protection. Each step in these boots is a testament to your unyielding determination.",
+    model: "ItemBase",
+    typeId: "Plate Boots",
+  },
+  {
+    text: "This Plate Armour is a fortress that you wear. Its heavy plating is made to withstand the hardest blows, while the intricate design declares the status of the wearer.",
+    model: "ItemBase",
+    typeId: "Plate Armour",
+  },
+  {
+    text: "An elegant Silk Robe, light and comfortable. The fabric is adorned with symbols and sigils, each meticulously embroidered, telling a story only the enlightened can understand.",
+    model: "ItemBase",
+    typeId: "Silk Robes",
+  },
+  {
+    text: "With a grip that feels like an extension of your hand, the Dagger is as deadly as it is graceful. The blade catches the light, hinting at its sharpness and lethal potential.",
+    model: "ItemBase",
+    typeId: "Dagger",
+  },
+  {
+    text: "This Crossbow, designed for precision, feels balanced and deadly in your hands. The intricately carved wood and masterfully forged iron are a testament to its maker.",
+    model: "ItemBase",
+    typeId: "Crossbow",
+  },
+  {
+    text: "The Spear, noble and true, carries with it the spirit of the warrior. The balanced weight of the shaft and the sharpness of the point promise swift justice to any enemy.",
+    model: "ItemBase",
+    typeId: "Spear",
+  },
+  {
+    text: "This Amulet carries an ethereal glow. The stone at its center pulses with an enchanting light, suggesting magic older than the land itself, waiting for its chosen to call.",
+    model: "ItemBase",
+    typeId: "Amulet",
+  },
+  {
+    text: "The Belt, though plain in its appearance, serves an essential function. Its sturdiness and comfort remind you of the foundational things in life that often go unnoticed.",
+    model: "ItemBase",
+    typeId: "Belt",
+  },
+  {
+    text: "This weapon, regardless of form, carries a weight that goes beyond its physical measure. It is a balance of power and finesse, a dance of life and death in your hands.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "The weapon's structure embodies the very essence of conflict. Its form speaks of numerous encounters, each notch and wear a testament to battles won and lessons learned.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "As your fingers wrap around the weapon's hilt, a surge of readiness courses through your veins. Regardless of shape or form, its potential for destruction - or salvation - is palpable.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "The weapon's design is an eloquent poetry of functionality. Its purpose clear: to protect, to conquer, to prevail. Its nature transcends the boundary between range and melee.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "In the hands of a master, this weapon could dictate the fate of kingdoms. Its silent promise of power and justice resonates with your warrior spirit.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "This weapon, irrespective of its design, stands as a testament to the art of warfare. It is a silent companion that whispers tales of courage and valor to its wielder.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "The gleam of the weapon holds a silent menace, a promise of the storm to come. It feels like an extension of your will, ready to unleash havoc at your command.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "Holding the weapon, you feel a resonance, a hunger for battle. Its form, be it blade or bow, echoes the rhythm of combat, ready to dance to the music of warfare.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "The weapon, a tangible manifestation of conflict and resolution, rests securely in your grasp. It is ready to serve, ready to defend, ready to conquer.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
+  {
+    text: "Embodying both grace and power, this weapon serves as a faithful companion. Its form, honed for battle, tells a tale of anticipation, ready to fulfill its purpose at your behest.",
+    model: "ItemSlot",
+    typeId: "weapon",
+  },
 ];
 
 export const findFlavorById = (_id) => {
-  return ITEM_FLAVOR.find((flavor) => flavor._id === _id);
+  return ITEM_FLAVOR.find((flavor) => flavor?._id === _id);
 };
 
 export const getRandomFlavor = (slot, base) => {

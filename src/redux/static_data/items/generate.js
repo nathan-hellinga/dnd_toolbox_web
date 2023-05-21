@@ -47,7 +47,7 @@ export function generateRandomItem({
   // Flavor TEXT
   let flavor = "";
   for (let i = 0; i < mods.length; i++) {
-    if (mods[i].flavor) {
+    if (mods[i]?.flavor) {
       flavor = findFlavorById(mods[i].flavor).text;
       break;
     }
