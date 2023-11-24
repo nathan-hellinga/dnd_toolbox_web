@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { reduxDeleteItem, reduxSaveItem } from "@/redux/actions";
+import { reduxDeleteItem, reduxSaveItem } from "../redux/actions";
+import { useAppSelector } from "@/hooks/stateHooks";
+import { Item } from "@/redux/reducers/main.types";
 
 export const useItems = ({ rarity = null } = {}) => {
   const [randomItem, setItem] = useState(null);
-  const [savedItems, setSavedItems] = useState([]);
-  const savedItemsRedux = useSelector((state) => state.main.items.saved);
+  const [savedItems, setSavedItems] = useState<Array<Item>>([]);
+  const savedItemsRedux = useAppSelector((state) => state.main.items.saved);
   const dispatch = useDispatch();
 
   useEffect(() => {

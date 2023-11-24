@@ -1,0 +1,84 @@
+.container{
+    /*margin: 0.5em;*/
+    /*border-radius: 5px;*/
+    background-color: var(--color-background-dark);
+    max-width: 1300px;
+    /*width: calc(100% - 40px);*/
+    margin-bottom: 1em;
+    /*padding: 0.5em;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+}
+
+.title{
+    color: var(--color-primary);
+    padding-top: 0.35em;
+    margin: 0 10px;
+}
+
+.subtitle{
+    opacity: 0.75;
+    margin: 0 10px 10px 10px;
+    color: var(--color-highlight-dark);
+    font-style: italic;
+}
+
+.spreadBox{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.hr{
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(to right, var(--color-secondary), transparent);
+    margin: 10px 0;
+
+    /*border-top: 3px solid transparent;*/
+    /*border-bottom: 3px solid transparent;*/
+    /**/
+    /*border-left: 540px solid var(--color-highlight-dark);*/
+}
+
+.body {
+    padding: 16px
+}
+
+.body hr{
+    background-color: var(--color-secondary);
+}
+
+.body p{
+    margin: 0;
+    color: var(--color-highlight-dark);
+}
+
+.body p strong{
+    color: var(--color-highlight-light);
+}
+
+.sectionTitle {
+    color: var(--color-secondary);
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+
+
+/*if the screen is large enough give it two columns*/
+@media only screen and (min-width: 1000px) {
+    .body{
+        column-count: 2;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container{
+        font-size: 0.75em;
+    }
+
+    .body{
+        padding: 8px;
+    }
+}

@@ -53,6 +53,9 @@ function HomeLayout({ children }) {
       <Typography align={"center"} gutterBottom>
         <Link href={"/encounters"}>Encounters</Link>
       </Typography>
+      <Typography align={"center"} gutterBottom>
+        <Link href={"/npcs"}>NPCs</Link>
+      </Typography>
     </div>
   );
 
@@ -96,21 +99,20 @@ function HomeLayout({ children }) {
           >
             <Link href={"/encounters"}>Encounters</Link>
           </Typography>
-          {/*<Typography*/}
-          {/*  sx={{*/}
-          {/*    margin: "0 15px",*/}
-          {/*    display: { xs: "none", sm: "none", md: "block" },*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  <Link href={"/about"}>About</Link>*/}
-          {/*</Typography>*/}
+          <Typography
+            sx={{
+              margin: "0 15px",
+              display: { xs: "none", sm: "none", md: "block" },
+            }}
+          >
+            <Link href={"/npcs"}>NPCs</Link>
+          </Typography>
 
           {/* ALIGN RIGHT */}
-          <div style={{ marginLeft: "auto" }} />
+          {/*<div style={{ marginLeft: "auto" }} />*/}
           {/*<Button color={"red"} onClick={() => dispatch(reduxReset())}>*/}
           {/*  RESET Redux*/}
           {/*</Button>*/}
-          {/*<AccountMenu />*/}
         </Toolbar>
       </AppBar>
       <Box

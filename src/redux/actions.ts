@@ -4,7 +4,10 @@ import {
   RESET,
   SAVE_ENCOUNTER,
   SAVE_ITEM,
+  SAVE_NPC,
+  DELETE_NPC
 } from "@/redux/actionTypes";
+import { NPC } from "./reducers/main.types";
 
 export const reduxReset = () => ({
   type: RESET,
@@ -37,3 +40,17 @@ export const reduxDeleteEncounter = (encounter) => ({
     encounter,
   },
 });
+
+export const reduxSaveNPC = (npc: NPC) => ({
+  type: SAVE_NPC,
+  payload: {
+    npc
+  }
+})
+
+export const reduxDeleteNPC = (npcId: string) => ({
+  type: DELETE_NPC,
+  payload: {
+    npcId
+  }
+})

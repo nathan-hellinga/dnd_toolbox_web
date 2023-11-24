@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { reduxDeleteEncounter, reduxSaveEncounter } from "@/redux/actions";
+import { useDispatch } from "react-redux";
+import { reduxDeleteEncounter, reduxSaveEncounter } from "../redux/actions";
+import { IEncounter } from "@/redux/reducers/main.types";
+import { useAppSelector } from "@/hooks/stateHooks";
 
 export const useEncounters = ({
   num_players = null,
   level = null,
   difficulty = null,
 } = {}) => {
-  const [randomEncounter, setEncounter] = useState(null);
-  const [savedEncounters, setSavedEncounters] = useState([]);
-  const savedEncountersRedux = useSelector(
+  const [randomEncounter, setEncounter] = useState<IEncounter | null>(null);
+  const [savedEncounters, setSavedEncounters] = useState<Array<IEncounter>>([]);
+  const savedEncountersRedux = useAppSelector(
     (state) => state.main.encounters.saved
   );
   const dispatch = useDispatch();

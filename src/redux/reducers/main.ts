@@ -3,15 +3,32 @@ import {
   DELETE_ITEM,
   SAVE_ENCOUNTER,
   SAVE_ITEM,
+  SAVE_NPC,
+  DELETE_NPC
 } from "@/redux/actionTypes";
+import { MainState, NPC } from "./main.types";
+import semver from "semver"
 
-const initialState = {
+
+/**
+ *  -- VERSIONS --
+ *  1.0.0
+ *   - Added npcs field
+ */
+
+const currentVersion = '1.0.0'
+
+const initialState: MainState = {
+  __version: currentVersion,
   items: {
     saved: [],
   },
   encounters: {
     saved: [],
   },
+  npcs: {
+    saved: []
+  }
 };
 
 export default function main(state = initialState, action) {
@@ -68,6 +85,42 @@ export default function main(state = initialState, action) {
           saved: [...delete_encounter_saved_copy],
         },
       };
+    case SAVE_NPC:
+      return {
+        ...state,
+        npcs: {
+          ...state.npcs,
+          saved: [...state.npcs.saved, action.payload.npc],
+        },
+      };
+    case DELETE_NPC:
+      let delete_npc_index = state.npcs.saved.findIndex(
+        (x) =>
+          x.id === action.payload.npcId
+      );
+      if (delete_npc_index === -1) return state;
+      // remove 1 element
+      const delete_npc_saved_copy = [...state.npcs.saved];
+      delete_npc_saved_copy.splice(delete_npc_index, 1);
+      return {
+        ...state,
+        npcs: {
+          ...state.npcs,
+          saved: [...delete_npc_saved_copy],
+        },
+      };
+    case 'persist/REHYDRATE':
+      const persistVersion = action?.payload?.main?.__version || '0.0.0'
+      const migrationState: MainState = {...state, ...action?.payload?.main}
+
+      if(semver.satisfies(persistVersion, '<1.0.0')){
+        // run the 1.0.0 migration
+        migrationState.__version = '1.0.0'
+        migrationState.npcs = {
+          saved: []
+        }
+      }
+      return migrationState
     default:
       return state;
   }
