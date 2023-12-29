@@ -6,7 +6,7 @@ import "@fontsource/roboto/700.css";
 import {
   CssBaseline,
   StyledEngineProvider,
-  ThemeProvider,
+  ThemeProvider
 } from "@mui/material";
 import Head from "next/head";
 import { Provider } from "react-redux";
@@ -47,6 +47,9 @@ export default function App({ Component, pageProps }) {
               async
               src="https://www.googletagmanager.com/gtag/js?id=G-811JN6RCFY"
             ></script>
+            <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6278900996400061"
+                    crossOrigin="anonymous"></script>
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -55,7 +58,7 @@ export default function App({ Component, pageProps }) {
           gtag('js', new Date());
 
           gtag('config', 'G-811JN6RCFY');
-        `,
+        `
               }}
             />
           </Head>
