@@ -25,6 +25,7 @@ export const generateEncounter = ({
   num_players = 4,
   level = 2,
   difficulty = 1,
+  lowVariance = false
 } = {}) => {
   if (!num_players || num_players < 0) num_players = 4;
   if (!level || level < 0) level = 2;
@@ -34,7 +35,12 @@ export const generateEncounter = ({
 
   let groupChallengeRating = (num_players / 4) * level * multi;
 
-  const encounterTypes = [encounterSwarm, encounterPresident, encounterRandom];
+  let encounterTypes = [];
+  if (lowVariance) {
+    encounterTypes = [encounterSwarm, encounterPresident];
+  } else {
+    encounterTypes = [encounterSwarm, encounterPresident, encounterRandom];
+  }
 
   return encounterTypes[Math.floor(Math.random() * encounterTypes.length)](
     groupChallengeRating,
@@ -65,7 +71,7 @@ export const encounterPresident = (
   let president =
     presidentialCandidates[
       Math.floor(Math.random() * presidentialCandidates.length)
-    ];
+      ];
   let guard =
     guardCandidates[Math.floor(Math.random() * guardCandidates.length)];
 
@@ -79,8 +85,8 @@ export const encounterPresident = (
     encounter_challenge_rating: encounterChallengeRating,
     enemies: [
       { count: 1, details: president },
-      { count: numGuards, details: guard },
-    ],
+      { count: numGuards, details: guard }
+    ]
   };
 };
 
@@ -110,7 +116,7 @@ export const encounterSwarm = (
   while (
     encounterChallengeRating > adjustedChallengeRating &&
     numEnemies >= num_players
-  ) {
+    ) {
     numEnemies--;
     encounterChallengeRating = numEnemies * selectedEnemy.cr;
   }
@@ -121,7 +127,7 @@ export const encounterSwarm = (
     xp: calculateXP(encounterChallengeRating * 1.25),
     num_enemies: numEnemies,
     encounter_challenge_rating: encounterChallengeRating * 1.25,
-    enemies: [{ count: numEnemies, details: selectedEnemy }],
+    enemies: [{ count: numEnemies, details: selectedEnemy }]
   };
 };
 
@@ -168,6 +174,6 @@ export const encounterRandom = (
     xp: calculateXP(encounterChallengeRating),
     num_enemies: selectedEnemies.reduce((a, r) => (a += r.count), 0),
     encounter_challenge_rating: encounterChallengeRating,
-    enemies: selectedEnemies,
+    enemies: selectedEnemies
   };
 };

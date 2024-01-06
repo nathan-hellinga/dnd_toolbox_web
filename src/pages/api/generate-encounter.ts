@@ -52,7 +52,8 @@ export default async function handler(
   let encounter = generateEncounter({
     num_players: req.query.players || 4,
     level: req.query.level || 2,
-    difficulty: req.query.difficulty || 1
+    difficulty: req.query.difficulty || 1,
+    lowVariance: true // having many unique enemy types makes the api response quite long. This limits that
   })
 
 
