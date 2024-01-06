@@ -18,6 +18,7 @@ const clearModFormatting = (item) => {
  * @swagger
  * /api/generate-item:
  *   get:
+ *     operationId: generateItem
  *     title: Generate Random Item
  *     description: generates a random magical item from a base item type (weapons, armour, jewellery, misc).
  *     parameters:

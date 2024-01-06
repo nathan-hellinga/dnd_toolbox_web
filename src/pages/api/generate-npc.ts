@@ -12,6 +12,7 @@ const cors = Cors({
  * @swagger
  * /api/generate-npc:
  *   get:
+ *     operationId: generateNPC
  *     title: Generate Random NPC
  *     description: generates a random npc. The race can be defined or left blank for a random race.
  *     parameters:

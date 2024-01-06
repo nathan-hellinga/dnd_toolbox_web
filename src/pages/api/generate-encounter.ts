@@ -11,6 +11,7 @@ const cors = Cors({
  * @swagger
  * /api/generate-encounter:
  *   get:
+ *     operationId: generateEncounter
  *     title: Generate Random Encounter
  *     description: generates a random combat encounter with difficulty scaled to the party size and level
  *     parameters:
