@@ -1,0 +1,321 @@
+components:
+  schemas:
+    Speed:
+      type: object
+      properties:
+        walk:
+          type: integer
+          nullable: true
+        fly:
+          type: integer
+          nullable: true
+        swim:
+          type: integer
+          nullable: true
+
+    Monster:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        size:
+          type: string
+        type:
+          type: string
+        subtype:
+          type: string
+          nullable: true
+        group:
+          type: string
+          nullable: true
+        alignment:
+          type: string
+        armor_class:
+          type: integer
+        armor_desc:
+          type: string
+          nullable: true
+        hit_points:
+          type: integer
+        hit_dice:
+          type: string
+        speed:
+          $ref: '#/components/schemas/Speed'
+        strength:
+          type: integer
+        dexterity:
+          type: integer
+        constitution:
+          type: integer
+        intelligence:
+          type: integer
+        wisdom:
+          type: integer
+        charisma:
+          type: integer
+        strength_save:
+          type: integer
+          nullable: true
+        dexterity_save:
+          type: integer
+          nullable: true
+        constitution_save:
+          type: integer
+          nullable: true
+        intelligence_save:
+          type: integer
+          nullable: true
+        wisdom_save:
+          type: integer
+          nullable: true
+        charisma_save:
+          type: integer
+          nullable: true
+        perception:
+          type: integer
+          nullable: true
+        skills:
+          type: object
+          additionalProperties:
+            type: integer
+        damage_vulnerabilities:
+          type: string
+        damage_resistances:
+          type: string
+        damage_immunities:
+          type: string
+        condition_immunities:
+          type: string
+        senses:
+          type: string
+        languages:
+          type: string
+        challenge_rating:
+          type: string
+        cr:
+          type: integer
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reaction'
+        legendary_desc:
+          type: string
+        legendary_actions:
+          type: string
+        special_abilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpecialAbility'
+        spell_list:
+          type: array
+          items:
+            type: object
+        page_no:
+          type: integer
+        img_main:
+          type: string
+          nullable: true
+        document__slug:
+          type: string
+        document__title:
+          type: string
+        document__license_url:
+          type: string
+        document__url:
+          type: string
+
+    Action:
+      type: object
+      properties:
+        name:
+          type: string
+        desc:
+          type: string
+        attack_bonus:
+          type: integer
+          nullable: true
+        damage_dice:
+          type: string
+          nullable: true
+
+    Reaction:
+      type: object
+      properties:
+        name:
+          type: string
+        desc:
+          type: string
+
+    SpecialAbility:
+      type: object
+      properties:
+        name:
+          type: string
+        desc:
+          type: string
+
+    Enemy:
+      type: object
+      properties:
+        count:
+          type: integer
+        details:
+          $ref: '#/components/schemas/Monster'
+
+    Encounter:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        xp:
+          type: integer
+        num_enemies:
+          type: integer
+        encounter_challenge_rating:
+          type: integer
+        enemies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Enemy'
+
+    Item:
+      type: object
+      properties:
+        name:
+          type: string
+        power:
+          type: string
+        cost:
+          type: number
+        stats:
+          type: string
+          nullable: true
+        flavor:
+          type: string
+        typeId:
+          type: object
+          properties:
+            name:
+              type: string
+            cost:
+              type: number
+            stats:
+              type: string
+              nullable: true
+        mods:
+          type: array
+          items:
+            type: string
+
+    CorePersonaMetric:
+      type: string
+      enum:
+        - Adaptability
+        - Discipline
+        - Sociability
+        - Empathy
+        - Resilience
+
+    CorePersonaMetricScores:
+      type: object
+      description: |
+        Core Persona Metrics provide insights into an NPC's personality and behavior:
+        - Adaptability: The NPC's ability to adjust to new situations and think on their feet.
+        - Discipline: The level of the NPC's self-control and organization.
+        - Sociability: The NPC's tendency towards social interactions and interpersonal skills.
+        - Empathy: The NPC's capacity to understand and share others' feelings.
+        - Resilience: The NPC's toughness and ability to recover from difficulties.
+      properties:
+        Adaptability:
+          type: integer
+        Discipline:
+          type: integer
+        Sociability:
+          type: integer
+        Empathy:
+          type: integer
+        Resilience:
+          type: integer
+
+    RaceName:
+      type: string
+      enum:
+        - Human
+        - Elf
+        - Dwarf
+        - Halfling
+        - Orc
+        - Gnome
+        - Tiefling
+
+    AlignmentCode:
+      type: string
+      enum:
+        - lg
+        - ng
+        - cg
+        - ln
+        - nn
+        - cn
+        - le
+        - ne
+        - ce
+
+    NameDesc:
+      type: object
+      properties:
+        name:
+          type: string
+        desc:
+          type: string
+
+    NPC:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        age:
+          type: integer
+        alignment:
+          $ref: '#/components/schemas/AlignmentCode'
+        weightKg:
+          type: number
+        heightCm:
+          type: number
+        isDead:
+          type: boolean
+        race:
+          $ref: '#/components/schemas/RaceName'
+        gender:
+          type: string
+          enum:
+            - male
+            - female
+        backstory:
+          $ref: '#/components/schemas/NameDesc'
+        occupation:
+          $ref: '#/components/schemas/NameDesc'
+        corePersonaMetrics:
+          $ref: '#/components/schemas/CorePersonaMetricScores'
+        traits:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameDesc'
+        goals:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameDesc'
+        flaws:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameDesc'

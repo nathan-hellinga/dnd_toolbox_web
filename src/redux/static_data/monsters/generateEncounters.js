@@ -52,7 +52,7 @@ export const encounterPresident = (
   level,
   difficulty
 ) => {
-  let numGuards = num_players;
+  let numGuards = parseInt(num_players);
   const presidentChallenge = groupChallengeRating * 0.5;
   const guardChallenge = (groupChallengeRating * 0.5) / numGuards;
 
