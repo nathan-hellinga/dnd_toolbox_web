@@ -3,11 +3,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import {
-  CssBaseline,
-  StyledEngineProvider,
-  ThemeProvider
-} from "@mui/material";
+import { CssBaseline, StyledEngineProvider, ThemeProvider } from "@mui/material";
 import Head from "next/head";
 import { Provider } from "react-redux";
 
@@ -31,17 +27,6 @@ export default function App({ Component, pageProps }) {
             />
             <link rel="shortcut icon" href="/favicon.png" />
             <meta name="theme-color" content="#f4ba7d" />
-
-            {/*SOCIAL MEDIA SHARE*/}
-            <meta property="og:image" content="/page_preview_banner.png" />
-            <meta
-              name="description"
-              content="Effortlessly craft your DnD adventure. Our intuitive tools generate random encounters and magic items. Dive in for a seamless Dungeons & Dragons experience."
-            />
-            <meta
-              name="title"
-              content="DND Toolbox: Your Go-To for Instant DnD Encounters & Magic Items"
-            />
 
             <script
               async

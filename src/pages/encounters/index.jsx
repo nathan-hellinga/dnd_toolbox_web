@@ -18,6 +18,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useEncounters } from "@/hooks/useEncounters";
 import EncounterCard from "@/components/encounter/encounterCard";
+import PageMetadata from "@/components/util/PageMetadata";
 
 export default function Index() {
   const {
@@ -35,6 +36,7 @@ export default function Index() {
 
   return (
     <>
+      <PageMetadata pageTitle={"Encounter Generator: Craft Exciting Adventures"} />
       <main>
         <Container>
           <Grid container spacing={2}>

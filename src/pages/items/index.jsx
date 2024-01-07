@@ -13,6 +13,7 @@ import useMediaQueryBreakpoints from "@/hooks/useMediaQueryBreakpoints";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
+import PageMetadata from "@/components/util/PageMetadata";
 
 export default function Index() {
   const { randomItem, generateRandomItem, saveItem, savedItems, deleteItem } =
@@ -22,6 +23,7 @@ export default function Index() {
 
   return (
     <>
+      <PageMetadata pageTitle={"Magic Item Generator: Create Unique Artifacts"}/>
       <main>
         <Container>
           <Grid container spacing={2}>

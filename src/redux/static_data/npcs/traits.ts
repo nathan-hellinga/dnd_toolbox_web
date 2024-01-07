@@ -456,14 +456,6 @@ export const NPC_FLAWS: ITrait[] = [
       "Discipline": "negative",
       "Resilience": "positive"
     }
-  },
-  {
-    "name": "Internet Addict",
-    "description": "Excessively uses the internet, often leading to social isolation and neglect of responsibilities.",
-    "metricsAssociation": {
-      "Discipline": "negative",
-      "Adaptability": "negative"
-    }
   }
 ]
 

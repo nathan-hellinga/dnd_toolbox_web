@@ -18,6 +18,8 @@ import { useNPCs } from "@/hooks/useNpcs";
 import CharacterCard from "@/components/npc/characterCard";
 import style from "@/components/npc/characterCard.module.css";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import PageMetadata from "@/components/util/PageMetadata";
+import HeroImage from "@/components/display/HeroImage";
 
 export default function Index() {
   const { randomNPC, generateRandomNpc, savedNPCS, deleteNPC, saveNPC } = useNPCs();
@@ -27,6 +29,7 @@ export default function Index() {
 
   return (
     <>
+      <PageMetadata pageTitle={"NPC Generator: Bring Characters to Life"} />
       <main>
         <Container>
           <Grid container spacing={2}>

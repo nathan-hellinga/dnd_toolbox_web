@@ -1,26 +1,34 @@
-import { Button, Container, Divider, Grid, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Container,
+  Divider,
+  Grid,
+  Typography
+} from "@mui/material";
 import HomeLayout from "@/layout";
 import { useItems } from "@/hooks/useItems";
 import Item from "@/components/item/item";
 import NextLink from "next/link";
-import { generateEncounter } from "@/redux/static_data/monsters/monsters";
 import EncounterCard from "@/components/encounter/encounterCard";
 import { useEncounters } from "@/hooks/useEncounters";
+import PageMetadata from "@/components/util/PageMetadata";
+import useMediaQueryBreakpoints from "@/hooks/useMediaQueryBreakpoints";
+import { useNPCs } from "@/hooks/useNpcs";
+import CharacterCard from "@/components/npc/characterCard";
 
 export default function Home() {
   const { randomItem } = useItems({ rarity: 3 });
   const { randomEncounter } = useEncounters({ num_players: 4, level: 8 });
-
-  const FAQs = [
-    {
-      question: "Do I need to provide a credit card to sign up?",
-      answer:
-        "No, Carbon Act does not require you to provide a credit card to sign up. You can create an account and start tracking your carbon emissions immediately, without any upfront payment or commitment. We believe in making it as easy as possible for businesses of all sizes to take action towards a more sustainable future.",
-    },
-  ];
+  const { randomNPC } = useNPCs();
+  const [xs, sm, md] = useMediaQueryBreakpoints();
 
   return (
     <>
+      <PageMetadata />
       <main>
         <Container>
           <Grid container spacing={2}>
@@ -77,7 +85,32 @@ export default function Home() {
               </NextLink>
             </Grid>
 
-            {/*  TODO encounter here */}
+            <Grid item xs={12} mb={4}>
+              <Divider sx={{ margin: 4 }} />
+              <Card>
+                <CardActionArea component={NextLink} href="/promotional/dndgpt">
+                  <CardMedia
+                    component="img"
+                    height={sm ? 540 : 220}
+                    image="/dndgpt-card-1.png"
+                    alt="DND - GPT AI Tool"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      Explore the Magic of AI with DND-GPT
+                    </Typography>
+                    <Typography variant="body2">
+                      Discover our latest innovation - the DND Toolbox AI tool! This advanced AI assistant enhances your
+                      gaming experience by creating dynamic characters, intriguing plots, and immersive worlds. Click to
+                      learn more and elevate your DnD adventures!
+                    </Typography>
+                    <Typography variant="body2" mt={1} color={"text.secondary"} fontStyle={"italic"}>
+                      powered by OpenAI
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
 
             <Grid item xs={12} mt={8}>
               <Typography paragraph>
@@ -106,6 +139,16 @@ export default function Home() {
                 unforgettable ride.
               </Typography>
               <Divider sx={{ margin: 4 }} />
+              <Typography variant={'h4'} mb={1}>Generate Deep, Meaningful Characters</Typography>
+              <CharacterCard character={randomNPC}/>
+              <div style={{display: 'flex', justifyContent: 'center'}}>
+                <NextLink href={"/npcs"}>
+                  <Button style={{ margin: "0 auto" }} variant={"contained"}>
+                    Try NPCs
+                  </Button>
+                </NextLink>
+              </div>
+              <Divider sx={{ margin: 4 }} />
               <Typography paragraph>
                 DND Toolbox isn't just about making your game easier, it's about
                 fueling your imagination and bringing your stories to life.
@@ -126,6 +169,7 @@ export default function Home() {
                 Toolbox.
               </Typography>
             </Grid>
+
           </Grid>
         </Container>
       </main>

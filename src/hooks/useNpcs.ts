@@ -5,7 +5,7 @@ import { Item, NPC } from "@/redux/reducers/main.types";
 import { generateNPC } from "../redux/static_data/npcs/generate";
 import { reduxDeleteNPC, reduxSaveNPC } from "../redux/actions";
 
-export const useNPCs = ({ rarity = null } = {}) => {
+export const useNPCs = () => {
   const [randomNPC, setRandomNPC] = useState<NPC | null>(null);
   const [savedNPCS, setSaved] = useState<NPC[]>([])
   const savedNPCSRedux = useAppSelector((state) => state.main.npcs.saved);
