@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Enemy } from "../../redux/reducers/main.types";
 
 export default function EncounterCard(props) {
   const formatSpeeds = (speeds) => {
@@ -158,7 +159,7 @@ export default function EncounterCard(props) {
     );
   };
 
-  const monsterAccordionCard = (monster, index) => {
+  const monsterAccordionCard = (monster: Enemy, index) => {
     return (
       <Accordion key={`monster_${monster.details.slug}`}>
         <AccordionSummary
@@ -318,7 +319,7 @@ export default function EncounterCard(props) {
 
   return (
     <Paper className={[style.container, props.style].join(" ")}>
-      <h1 className={style.title}>{props.encounter.name}</h1>
+      {props.titleEl ? props.titleEl : <h1 className={style.title}>{props.encounter.name}</h1>}
       <div style={{ display: "flex", flexDirection: "row" }}>
         <p className={style.subtitle}>
           Challenge Rating: {props.encounter.encounter_challenge_rating}
@@ -336,4 +337,5 @@ export default function EncounterCard(props) {
 
 EncounterCard.propTypes = {
   encounter: PropTypes.object,
+  titleEl: PropTypes.node,
 };

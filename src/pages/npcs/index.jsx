@@ -94,7 +94,7 @@ export default function Index() {
               </Button>
             </Grid>
             <Grid item xs={12}>
-              <Divider sx={{ marginTop: "40px" }}>Saved Items</Divider>
+              <Divider sx={{ marginTop: "40px" }}>Saved NPC's</Divider>
             </Grid>
             <Grid item xs={12} display={"flex"} justifyContent={"flex-end"}>
               <IconButton onClick={() => setEditMode(!editMode)}>

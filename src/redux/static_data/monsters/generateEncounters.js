@@ -1,4 +1,5 @@
 import { ALL_MONSTERS } from "@/redux/static_data/monsters/monsters";
+import { roundToDecimal } from "@/helpers/roundToDecimal";
 
 /**
  *
@@ -16,7 +17,7 @@ export const getEnemyByCR = (rating, deviation = 0) => {
   return enemyOptions;
 };
 
-export const calculateXP = (cr) => {
+const calculateXP = (cr) => {
   if (cr < 0.15) return 100;
   return Math.ceil(339.75 * Math.exp(0.2219 * cr));
 };
@@ -82,7 +83,7 @@ export const encounterPresident = (
     type: "president",
     xp: calculateXP(encounterChallengeRating),
     num_enemies: numGuards + 1,
-    encounter_challenge_rating: encounterChallengeRating,
+    encounter_challenge_rating: roundToDecimal(encounterChallengeRating),
     enemies: [
       { count: 1, details: president },
       { count: numGuards, details: guard }
@@ -126,7 +127,7 @@ export const encounterSwarm = (
     type: "swarm",
     xp: calculateXP(encounterChallengeRating * 1.25),
     num_enemies: numEnemies,
-    encounter_challenge_rating: encounterChallengeRating * 1.25,
+    encounter_challenge_rating: roundToDecimal(encounterChallengeRating * 1.25),
     enemies: [{ count: numEnemies, details: selectedEnemy }]
   };
 };
@@ -173,7 +174,7 @@ export const encounterRandom = (
     type: "random fill",
     xp: calculateXP(encounterChallengeRating),
     num_enemies: selectedEnemies.reduce((a, r) => (a += r.count), 0),
-    encounter_challenge_rating: encounterChallengeRating,
+    encounter_challenge_rating: roundToDecimal(encounterChallengeRating),
     enemies: selectedEnemies
   };
 };

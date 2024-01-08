@@ -1,16 +1,16 @@
 import HomeLayout from "@/layout";
 import {
+  Box,
   Button,
   Container,
   Divider,
+  FormControl,
   Grid,
   IconButton,
-  Typography,
-  Box,
-  Select,
-  MenuItem,
-  FormControl,
   InputLabel,
+  MenuItem,
+  Select,
+  Typography
 } from "@mui/material";
 import useMediaQueryBreakpoints from "@/hooks/useMediaQueryBreakpoints";
 import EditIcon from "@mui/icons-material/Edit";
@@ -19,6 +19,8 @@ import { useState } from "react";
 import { useEncounters } from "@/hooks/useEncounters";
 import EncounterCard from "@/components/encounter/encounterCard";
 import PageMetadata from "@/components/util/PageMetadata";
+import styles from "./index.module.css";
+import CustomEncounterDialog from "@/components/encounter/customEncounterDialog";
 
 export default function Index() {
   const {
@@ -27,17 +29,29 @@ export default function Index() {
     saveEncounter,
     savedEncounters,
     deleteEncounter,
+    saveCustomEncounter
   } = useEncounters({ num_players: 4, level: 1 });
   const [xs, sm, md] = useMediaQueryBreakpoints();
   const [editMode, setEditMode] = useState(false);
+  const [customEncounterModalOpen, setCustomEncounterModalOpen] = useState(false);
 
   const [players, setPlayers] = useState(4);
   const [level, setLevel] = useState(1);
+
+  const handleCustomEncounterModalClose = () => {
+    setCustomEncounterModalOpen(false);
+  };
+
+  const handleCustomEncounterSave = (encounter) => {
+    saveCustomEncounter(encounter);
+    handleCustomEncounterModalClose();
+  }
 
   return (
     <>
       <PageMetadata pageTitle={"Encounter Generator: Craft Exciting Adventures"} />
       <main>
+        <CustomEncounterDialog onSave={handleCustomEncounterSave} onClose={handleCustomEncounterModalClose} open={customEncounterModalOpen} />
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -78,15 +92,11 @@ export default function Index() {
                 </FormControl>
 
                 <Button
-                  // style={{
-                  //   justifyContent: "center",
-                  //   margin: "0 auto 16px auto",
-                  // }}
                   variant={"contained"}
                   onClick={() =>
                     generateRandomEncounter({
                       num_players: players,
-                      level: level,
+                      level: level
                     })
                   }
                 >
@@ -118,6 +128,10 @@ export default function Index() {
               >
                 save encounter
               </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography>Need something custom? <span className={styles.customSpan}
+                                                       onClick={() => setCustomEncounterModalOpen(true)}>Create custom encounter</span></Typography>
             </Grid>
             <Grid item xs={12}>
               <Divider sx={{ marginTop: "40px" }}>Saved Encounters</Divider>

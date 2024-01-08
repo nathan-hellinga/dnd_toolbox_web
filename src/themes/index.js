@@ -24,6 +24,11 @@ const palette = {
     main: "#242424",
     dark: "#1f1f1f",
   },
+  grey: {
+    light: "#999999",
+    main: "#888888",
+    dark: "#777777",
+  },
   red: {
     main: "#ff0000",
   },

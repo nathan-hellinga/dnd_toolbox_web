@@ -39,6 +39,10 @@ export const useEncounters = ({
     dispatch(reduxSaveEncounter(randomEncounter));
   };
 
+  const saveCustomEncounter = (encounter: IEncounter) => {
+    dispatch(reduxSaveEncounter(encounter));
+  }
+
   const deleteEncounter = (encounter) => {
     dispatch(reduxDeleteEncounter(encounter));
   };
@@ -49,5 +53,6 @@ export const useEncounters = ({
     savedEncounters,
     saveEncounter,
     deleteEncounter,
+    saveCustomEncounter
   };
 };

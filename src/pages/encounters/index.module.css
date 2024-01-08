@@ -1,0 +1,5 @@
+.customSpan {
+    cursor: pointer;
+    color: var(--color-primary);
+    font-weight: bold;
+}

@@ -35,7 +35,7 @@ interface Speed {
   swim?: number;
 }
 
-interface Monster {
+export interface Monster {
   slug: string;
   name: string;
   size: string;
@@ -102,7 +102,7 @@ interface SpecialAbility {
 }
 
 
-interface Enemy {
+export interface Enemy {
   count: number;
   details: Monster;
 }
