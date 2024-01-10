@@ -10,7 +10,8 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  Typography
+  Stack,
+  Typography,
 } from "@mui/material";
 import useMediaQueryBreakpoints from "@/hooks/useMediaQueryBreakpoints";
 import EditIcon from "@mui/icons-material/Edit";
@@ -21,6 +22,7 @@ import EncounterCard from "@/components/encounter/encounterCard";
 import PageMetadata from "@/components/util/PageMetadata";
 import styles from "./index.module.css";
 import CustomEncounterDialog from "@/components/encounter/customEncounterDialog";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 export default function Index() {
   const {
@@ -29,11 +31,12 @@ export default function Index() {
     saveEncounter,
     savedEncounters,
     deleteEncounter,
-    saveCustomEncounter
+    saveCustomEncounter,
   } = useEncounters({ num_players: 4, level: 1 });
   const [xs, sm, md] = useMediaQueryBreakpoints();
   const [editMode, setEditMode] = useState(false);
-  const [customEncounterModalOpen, setCustomEncounterModalOpen] = useState(false);
+  const [customEncounterModalOpen, setCustomEncounterModalOpen] =
+    useState(false);
 
   const [players, setPlayers] = useState(4);
   const [level, setLevel] = useState(1);
@@ -45,13 +48,19 @@ export default function Index() {
   const handleCustomEncounterSave = (encounter) => {
     saveCustomEncounter(encounter);
     handleCustomEncounterModalClose();
-  }
+  };
 
   return (
     <>
-      <PageMetadata pageTitle={"Encounter Generator: Craft Exciting Adventures"} />
+      <PageMetadata
+        pageTitle={"Encounter Generator: Craft Exciting Adventures"}
+      />
       <main>
-        <CustomEncounterDialog onSave={handleCustomEncounterSave} onClose={handleCustomEncounterModalClose} open={customEncounterModalOpen} />
+        <CustomEncounterDialog
+          onSave={handleCustomEncounterSave}
+          onClose={handleCustomEncounterModalClose}
+          open={customEncounterModalOpen}
+        />
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -96,7 +105,7 @@ export default function Index() {
                   onClick={() =>
                     generateRandomEncounter({
                       num_players: players,
-                      level: level
+                      level: level,
                     })
                   }
                 >
@@ -130,8 +139,15 @@ export default function Index() {
               </Button>
             </Grid>
             <Grid item xs={12}>
-              <Typography>Need something custom? <span className={styles.customSpan}
-                                                       onClick={() => setCustomEncounterModalOpen(true)}>Create custom encounter</span></Typography>
+              <Typography>
+                Need something custom?{" "}
+                <span
+                  className={styles.customSpan}
+                  onClick={() => setCustomEncounterModalOpen(true)}
+                >
+                  Create custom encounter
+                </span>
+              </Typography>
             </Grid>
             <Grid item xs={12}>
               <Divider sx={{ marginTop: "40px" }}>Saved Encounters</Divider>
@@ -149,17 +165,27 @@ export default function Index() {
                 xs={12}
                 key={`savedencounter_${encounter.name}_${index}`}
               >
-                {editMode && (
-                  <Button
-                    style={{ margin: "4px" }}
-                    variant={"outlined"}
-                    color={"error"}
-                    onClick={() => deleteEncounter(encounter)}
-                  >
-                    delete encounter
-                  </Button>
-                )}
-                <EncounterCard encounter={encounter} />
+                <EncounterCard
+                  encounter={encounter}
+                  titleEl={
+                    <Stack
+                      direction={"row"}
+                      alignItems={"flex-end"}
+                      justifyContent={"space-between"}
+                    >
+                      <h1 className={styles.title}>{encounter.name}</h1>
+                      {editMode && (
+                        <IconButton
+                          style={{ margin: "4px" }}
+                          color={"error"}
+                          onClick={() => deleteEncounter(encounter)}
+                        >
+                          <DeleteForeverIcon />
+                        </IconButton>
+                      )}
+                    </Stack>
+                  }
+                />
               </Grid>
             ))}
           </Grid>

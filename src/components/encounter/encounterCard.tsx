@@ -1,17 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 import style from "./encounterCard.module.css";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Paper,
+  Stack,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Enemy } from "../../redux/reducers/main.types";
+import { Enemy, IEncounter } from "../../redux/reducers/main.types";
 
-export default function EncounterCard(props) {
+export default function EncounterCard(props: {
+  encounter: IEncounter;
+  titleEl?: React.ReactNode;
+  customSummaryEl?: (monster: Enemy) => React.ReactNode;
+}) {
   const formatSpeeds = (speeds) => {
     let out = "";
 
@@ -172,31 +176,38 @@ export default function EncounterCard(props) {
             color: "var(--color-primary)",
           }}
         >
-          <div>
-            {monster.details.name}{" "}
-            {monster.count > 1 && (
-              <span
+          <Stack
+            direction={"row"}
+            justifyContent={"space-between"}
+            width={"100%"}
+          >
+            <div>
+              {monster.details.name}{" "}
+              {monster.count > 1 && (
+                <span
+                  style={{
+                    opacity: 0.75,
+                    color: "var(--color-highlight-dark)",
+                  }}
+                >
+                  (x{monster.count})
+                </span>
+              )}
+              <Typography
                 style={{
                   opacity: 0.75,
+                  fontStyle: "italic",
+                  fontSize: "0.6em",
                   color: "var(--color-highlight-dark)",
+                  display: "block",
                 }}
               >
-                (x{monster.count})
-              </span>
-            )}
-            <Typography
-              style={{
-                opacity: 0.75,
-                fontStyle: "italic",
-                fontSize: "0.6em",
-                color: "var(--color-highlight-dark)",
-                display: "block",
-              }}
-            >
-              {monster.details.size} {monster.details.type},{" "}
-              {monster.details.alignment}
-            </Typography>
-          </div>
+                {monster.details.size} {monster.details.type},{" "}
+                {monster.details.alignment}
+              </Typography>
+            </div>
+            {!!props.customSummaryEl ? props.customSummaryEl(monster) : null}
+          </Stack>
         </AccordionSummary>
 
         <AccordionDetails className={style.body}>
@@ -319,7 +330,11 @@ export default function EncounterCard(props) {
 
   return (
     <Paper className={[style.container, props.style].join(" ")}>
-      {props.titleEl ? props.titleEl : <h1 className={style.title}>{props.encounter.name}</h1>}
+      {props.titleEl ? (
+        props.titleEl
+      ) : (
+        <h1 className={style.title}>{props.encounter.name}</h1>
+      )}
       <div style={{ display: "flex", flexDirection: "row" }}>
         <p className={style.subtitle}>
           Challenge Rating: {props.encounter.encounter_challenge_rating}
@@ -334,8 +349,3 @@ export default function EncounterCard(props) {
     </Paper>
   );
 }
-
-EncounterCard.propTypes = {
-  encounter: PropTypes.object,
-  titleEl: PropTypes.node,
-};

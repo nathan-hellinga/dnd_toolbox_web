@@ -1,13 +1,12 @@
 .container{
-    /*margin: 0.5em;*/
-    /*border-radius: 5px;*/
     background-color: var(--color-background-light);
     max-width: 1300px;
-    /*width: calc(100% - 40px);*/
     margin-bottom: 1em;
-    /*padding: 0.5em;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
+}
+
+.iconButton {
+    border-radius: 50%;
+    border: 1px solid #cccccc70;
 }
 
 .title{
@@ -34,11 +33,6 @@
     height: 4px;
     background: linear-gradient(to right, var(--color-secondary), transparent);
     margin: 10px 0;
-
-    /*border-top: 3px solid transparent;*/
-    /*border-bottom: 3px solid transparent;*/
-    /**/
-    /*border-left: 540px solid var(--color-highlight-dark);*/
 }
 
 .body hr{
