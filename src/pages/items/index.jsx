@@ -1,11 +1,13 @@
 import HomeLayout from "@/layout";
 import { useItems } from "@/hooks/useItems";
 import {
+  Box,
   Button,
   Container,
   Divider,
   Grid,
   IconButton,
+  Stack,
   Typography,
 } from "@mui/material";
 import Item from "@/components/item/item";
@@ -14,16 +16,20 @@ import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import PageMetadata from "@/components/util/PageMetadata";
+import ItemBaseSelect from "@/components/item/itemBaseSelect";
 
 export default function Index() {
   const { randomItem, generateRandomItem, saveItem, savedItems, deleteItem } =
     useItems();
   const [xs, sm, md] = useMediaQueryBreakpoints();
   const [editMode, setEditMode] = useState(false);
+  const [baseType, setBaseType] = useState(null);
 
   return (
     <>
-      <PageMetadata pageTitle={"Magic Item Generator: Create Unique Artifacts"}/>
+      <PageMetadata
+        pageTitle={"Magic Item Generator: Create Unique Artifacts"}
+      />
       <main>
         <Container>
           <Grid container spacing={2}>
@@ -39,13 +45,22 @@ export default function Index() {
               </Typography>
             </Grid>
             <Grid item xs={12} display={"flex"} flexDirection={"column"}>
-              <Button
-                style={{ justifyContent: "center", margin: "0 auto" }}
-                variant={"contained"}
-                onClick={generateRandomItem}
+              <Stack
+                direction={sm ? "row" : "column"}
+                alignItems={sm ? "flex-end" : "center"}
+                justifyContent={"center"}
+                spacing={2}
               >
-                Generate new random item
-              </Button>
+                <Button
+                  variant={"contained"}
+                  onClick={() => generateRandomItem(baseType?.name)}
+                >
+                  Generate new random item
+                </Button>
+                <Box width={200}>
+                  <ItemBaseSelect onSelect={(value) => setBaseType(value)} />
+                </Box>
+              </Stack>
 
               <Item item={randomItem} />
               <Button

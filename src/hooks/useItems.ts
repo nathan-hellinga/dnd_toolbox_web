@@ -18,11 +18,11 @@ export const useItems = ({ rarity = null } = {}) => {
     setSavedItems(savedItemsRedux);
   }, [savedItemsRedux]);
 
-  const generateRandomItem = async () => {
+  const generateRandomItem = async (baseType?: string) => {
     const { generateRandomItem } = await import(
       "@/redux/static_data/items/generate"
     );
-    setItem(generateRandomItem({ rarity: rarity }));
+    setItem(generateRandomItem({ rarity: rarity, baseType }));
   };
 
   const saveItem = () => {

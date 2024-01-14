@@ -24,10 +24,9 @@ export function generateRandomItem({
    * If none are provided we randomly pick a slot and select a random base from that slot.
    * This gives every slot an even chance of being selected no matter how many base types there are.
    */
-
   if (baseType) {
     baseType = getBaseType(baseType);
-    slotType = getItemSlot(baseType?.slot);
+    slotType = getItemSlot(baseType?.name);
   } else if (slotType) {
     slotType = getItemSlot(slotType);
     baseType = getRandomBaseType(slotType.slot);

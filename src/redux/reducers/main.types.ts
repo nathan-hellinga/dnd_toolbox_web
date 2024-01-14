@@ -2,18 +2,23 @@ import { RaceName } from "../static_data/npcs/race";
 import { CorePersonaMetricScores } from "../static_data/npcs/types";
 
 export interface MainState {
-  __version: string,
+  __version: string;
   items: {
-    saved: Item[]
-  },
+    saved: Item[];
+  };
   encounters: {
-    saved: IEncounter[]
-  },
+    saved: IEncounter[];
+  };
   npcs: {
-    saved: NPC[]
-  }
+    saved: NPC[];
+  };
 }
 
+export interface ItemBaseType {
+  name: string;
+  cost: number;
+  stats: string | null;
+}
 
 export interface Item {
   name: string;
@@ -101,7 +106,6 @@ interface SpecialAbility {
   desc: string;
 }
 
-
 export interface Enemy {
   count: number;
   details: Monster;
@@ -117,32 +121,40 @@ export interface IEncounter {
 }
 
 type nameDesc = {
-  name: string,
-  description: string
-}
+  name: string;
+  description: string;
+};
 
-export type AlignmentCode = "lg" | "ng" | "cg" | "ln" | "nn" | "cn" | "le" | "ne" | "ce"
+export type AlignmentCode =
+  | "lg"
+  | "ng"
+  | "cg"
+  | "ln"
+  | "nn"
+  | "cn"
+  | "le"
+  | "ne"
+  | "ce";
 
 export type NPC = {
-  id: string,
-  name: string,
-  age: number,
-  alignment: AlignmentCode,
-  weightKg: number,
-  heightCm: number,
-  isDead: boolean,
-  race: RaceName,
-  gender: 'male' | 'female',
-  backstory: nameDesc,
-  occupation: nameDesc,
-  corePersonaMetrics: CorePersonaMetricScores,
-  traits: nameDesc[],
-  goals: nameDesc[],
-  flaws: nameDesc[],
+  id: string;
+  name: string;
+  age: number;
+  alignment: AlignmentCode;
+  weightKg: number;
+  heightCm: number;
+  isDead: boolean;
+  race: RaceName;
+  gender: "male" | "female";
+  backstory: nameDesc;
+  occupation: nameDesc;
+  corePersonaMetrics: CorePersonaMetricScores;
+  traits: nameDesc[];
+  goals: nameDesc[];
+  flaws: nameDesc[];
   family: {
-    parents: NPC[],
-    siblings: NPC[],
-    children: NPC[]
-  }
-}
-
+    parents: NPC[];
+    siblings: NPC[];
+    children: NPC[];
+  };
+};
